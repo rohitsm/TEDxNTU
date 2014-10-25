@@ -1,7 +1,7 @@
 import csv
 
-csvFile = 'Speech_2008.csv'
-xmlFile = 'Speech_2008.xml'
+csvFile = 'Speech_2012.csv'
+xmlFile = 'Speech_2012.xml'
 
 
 def removeNonAscii(s): 
@@ -11,15 +11,21 @@ rowNum = 0
 with open(csvFile, 'rU') as x:
 	csvData = csv.reader(x, delimiter=',')
 	
+	# Build XML structure as follows:
+
+	# <comments>
+	# 		<comment id="1" author="John Smith">Hello World!</comment>
+	#     	<comment id="2" author="Bob Smith">Hello World Again!</comment>
+	#         ...
+	# </comments>
+
 	xmlData = open(xmlFile, 'w')
 	xmlData.write(removeNonAscii('<?xml version="1.0"?>' + "\n"))
 	xmlData.write(removeNonAscii('<comments>' + '\n'))	#top level tag
 	
 	for line in csvData:
 		if rowNum != 0:
-			# XML structure:
-			# <comment id="1" author="John_Smith">Blah blah </comment>
-			
+
 			comment = 	'    ' + \
 						'<comment ' + \
 						'id="' + str(rowNum) + '" ' + \
