@@ -1,8 +1,7 @@
 import csv
 
-csvFile = 'Speech_2012.csv'
-csvFile_2 = 'Speech2_2012.csv'
-
+csvFile = 'Speech_2008.csv'
+csvFile_2 = 'Speech2_2008.csv'
 
 def removeNonAscii(s): 
 	return "".join(i for i in s if ord(i)<128)
@@ -25,5 +24,4 @@ with open(csvFile, 'rU') as x:
 			rowNum += 1
 	csvfile.close()
 x.close()
-
 		
