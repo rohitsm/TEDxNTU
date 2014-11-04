@@ -1,7 +1,7 @@
 import csv
 
-csvFile = 'Speech_2012.csv'
-xmlFile = 'Speech_2012.xml'
+csvFile = 'Speech_2008.csv'
+xmlFile = 'Speech_2008.xml'
 
 
 def removeNonAscii(s): 
@@ -37,4 +37,5 @@ with open(csvFile, 'rU') as x:
 
 	xmlData.write(removeNonAscii('</comments>'))
 	xmlData.close()
+x.close()
 		
